@@ -6,14 +6,16 @@
   function doSomething() {
 
 
-    var result1 = toDollars(3.0);
+    var result1 = sum(10);
 
-    document.write(result);
+    document.write(result1);
 
 
 
-    function toDollars() {
-
+    /*
+    * Suma liczb od 1 do przekazanego parametru
+    * */
+    function sum(param) {
     }
 
 
