@@ -1,15 +1,31 @@
 (function () {
   'use strict';
 
-  window.onload = doSomething;
+  window.onload = main;
 
-  function doSomething() {
-    //calculate(3, 2, '*');
+  function main() {
+    var number1Input = document.getElementById('number1');
+    var number2Input = document.getElementById('number2');
+    var operationSelect = document.getElementById('operation');
+    var calculateButton = document.getElementById('calculateButton');
+
+    var resultSpan = document.getElementById('result');
 
 
-    var result = superCalculate([1, 4, 8, 12, 25], '+');
-    document.write(result);
+    calculateButton.onclick = function () {
+      var number1 = +number1Input.value;
+      var number2 = +number2Input.value;
+      var operator = operationSelect.options[operationSelect.selectedIndex].value;
+
+      var result = calculate(number1, number2, operator);
+
+      resultSpan.innerHTML = '' + result;
+
+    };
+
   };
+
+
 
   function calculate(number1, number2, operator) {
     var result;
@@ -26,38 +42,5 @@
 
     return result
   }
-
-
-  function polacz(charsTable) {
-    var result = '';
-
-    for (var i = 0; i < charsTable.length; i++) {
-      result = result + charsTable[i];
-    }
-
-    return result;
-  }
-
-  function sum(numberTable) {
-    var result = 0;
-    for (var i = 0; i < numberTable.length; i++) {
-      result = result + numberTable[i]
-    }
-
-    return result
-
-  }
-
-  function superCalculate(sCalculateTable, operator) {
-    var result = sCalculateTable[0];
-
-    for (var i = 1; i < sCalculateTable.length; i++) {
-      result = calculate(result, sCalculateTable[i], operator);
-    }
-    return result;
-
-  }
-
-  return result
 
 })();

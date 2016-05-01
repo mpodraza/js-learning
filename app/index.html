@@ -8,6 +8,35 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
+    <form>
+
+        <div>
+            Numer 1
+            <input type="text" id="number1"/>
+        </div>
+        <div>
+            Działanie
+            <select id="operation">
+                <option value="*">*</option>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="/">/</option>
+            </select>
+        </div>
+        <div>
+            Numer 2
+            <input type="text" id="number2"/>
+        </div>
+
+        <div>
+            <input type="button" id="calculateButton" value="Oblicz"/>
+        </div>
+
+        <div>
+            <b>Wynik działania to:</b><br/>
+            <span id="result"></span>
+        </div>
+    </form>
 
 <script type="text/javascript" src="scripts/main.js"></script>
 </body>
