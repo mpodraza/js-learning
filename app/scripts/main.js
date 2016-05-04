@@ -1,9 +1,9 @@
 (function () {
   'use strict';
 
-  window.onload = doSomething;
+  window.onload = main;
 
-  function doSomething() {
+  function main() {
 
 
     var result1 = toDollars(3.0);
@@ -11,11 +11,9 @@
     document.write(result);
 
 
-
     function toDollars() {
 
     }
-
 
 
   };
