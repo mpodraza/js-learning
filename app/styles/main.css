@@ -1,4 +1,9 @@
-.DolarsContainer{
+body {
+    background-color: #2390ff;
+    margin-left: 80px;
+}
 
+div {
+    margin-top: 30px;
 
 }
