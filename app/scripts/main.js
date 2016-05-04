@@ -11,7 +11,9 @@
     document.write(result);
 
 
-    function toDollars() {
+    function toDollars(pricePLN) {
+
+      if
 
     }
 
