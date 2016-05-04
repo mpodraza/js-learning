@@ -1,18 +1,25 @@
 body {
-    background-color: #015abb;
-    margin-top: 30px;
 }
 
-.mainContainer {
-    background-color: #a600bb;
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
+.stage {
+    width: 400px;
+    height: 400px;
+    border: solid black 1px;
+    position: relative;
 }
 
-.scoreContainer {
-    text-align: center;
-    color: #ffffff;
-    font-size: 24px;
-    margin-top: 32px;
+.ball {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background-color: red;
+    position: absolute;
+}
+
+.blueBall {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background-color: blue;
+    position: absolute;
 }

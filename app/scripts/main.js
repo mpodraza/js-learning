@@ -1,29 +1,91 @@
 (function () {
   'use strict';
 
-  window.onload = doSomething;
+  window.onload = main;
 
-  function doSomething() {
-    var liczbaUchwyt = document.getElementById("number");
-    var buttonUchwyt = document.getElementById("unsubscribe");
-    buttonUchwyt.onclick = wypisz;
+  function main() {
+    var ball = document.getElementById('ball');
+    var blueBall = document.getElementById('blueBall');
+
+    var moveLeftButton = document.getElementById('moveLeft');
+    var moveRightButton = document.getElementById('moveRight');
+    var moveUpButton = document.getElementById('moveUp');
+    var moveDownButton = document.getElementById('moveDown');
+
+    moveLeftButton.onclick = moveLeft;
+    moveRightButton.onclick = moveRight;
+    moveUpButton.onclick = moveUp;
+    moveDownButton.onclick = moveDown;
 
 
-    function wypisz() {
-      var napis = "";
-      var liczba = liczbaUchwyt.value;
-
-      for (var i = 1; i <= liczba; i++) {
-        napis = napis + i + " ";
+    function moveLeft() {
+      var actualLeftPosition = +(ball.style.left.replace('px', ''));
+      if (actualLeftPosition > 0) {
+        var newLeftPosition = actualLeftPosition - 10;
+        ball.style.left = newLeftPosition + 'px';
       }
-      document.getElementById("wynik").innerHTML = napis;
+
+      removeBlueBallIfCollide();
+
+    }
+
+    function moveRight() {
+      var actualLeftPosition = +(ball.style.left.replace('px', ''));
+      if (actualLeftPosition < 340) {
+        var newLeftPosition = actualLeftPosition + 10;
+        ball.style.left = newLeftPosition + 'px';
+      }
+
+      removeBlueBallIfCollide();
+    }
+
+    function moveUp() {
+      var actualTopPosition = +(ball.style.top.replace('px', ''));
+      if (actualTopPosition > 0) {
+        var newTopPosition = actualTopPosition - 10;
+        ball.style.top = newTopPosition + 'px'
+      }
+
+      removeBlueBallIfCollide();
+    }
+
+    function moveDown() {
+      var actualTopPosition = +(ball.style.top.replace('px', ''));
+      if (actualTopPosition < 340) {
+        var newTopPosition = actualTopPosition + 10
+        ball.style.top = newTopPosition + 'px'
+      }
+
+      removeBlueBallIfCollide();
     }
 
 
-    /*
-     * Suma liczb od 1 do przekazanego parametru
-     * */
-    function sum(param) {
+    function removeBlueBallIfCollide() {
+      var actualRedLeftPosition = +(ball.style.left.replace('px', ''));
+      var actualRedTopPosition = +(ball.style.top.replace('px', ''));
+      var actualBlueLeftPosition = +(blueBall.style.left.replace('px', ''));
+      var actualBlueTopPosition = +(blueBall.style.top.replace('px', ''));
+
+      //Math.abs(-10);
+      //Math.abs(10);
+      // LUB: ||
+      // I : &&
+
+      var distanceX = Math.abs(actualRedLeftPosition - actualBlueLeftPosition);
+      var distanceY = Math.abs(actualRedTopPosition - actualBlueTopPosition);
+
+      if (distanceX < 60 && distanceY < 60) {
+        //blueBall.parentNode.removeChild(blueBall);
+        var newLeftPosition = getRandomInt(35) * 10;
+        var newTopPosition = getRandomInt(35) * 10;
+        blueBall.style.left = newLeftPosition + 'px';
+        blueBall.style.top = newTopPosition + 'px';
+      }
+    }
+
+
+    function getRandomInt(n) {
+      return Math.floor((Math.random() * n));
     }
 
 
