@@ -6,14 +6,15 @@
   function main() {
 
 
-    var result1 = toDollars(3.0);
+    var result = toDollars(3.82684301);
 
     document.write(result);
 
 
     function toDollars(pricePLN) {
 
-      if
+      var result = pricePLN * 3.82684301;
+      return result;
 
     }
 
