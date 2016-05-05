@@ -1,94 +1,39 @@
-(function () {
-  'use strict';
+var haslo = 'Baba z wozu koniom lżej';
+haslo = haslo.toUpperCase();
 
-  window.onload = main;
+var dlugosc = haslo.length;
 
-  function main() {
-    var ball = document.getElementById('ball');
-    var blueBall = document.getElementById('blueBall');
+var haslo1 = "";
 
-    var moveLeftButton = document.getElementById('moveLeft');
-    var moveRightButton = document.getElementById('moveRight');
-    var moveUpButton = document.getElementById('moveUp');
-    var moveDownButton = document.getElementById('moveDown');
+for (var i = 0; i < dlugosc; i++) {
+  if (haslo.charAt(i) == " ") {
+    haslo1 = haslo1 + " ";
+  }
+  else {
+    haslo1 = haslo1 + "-";
+  }
 
-    moveLeftButton.onclick = moveLeft;
-    moveRightButton.onclick = moveRight;
-    moveUpButton.onclick = moveUp;
-    moveDownButton.onclick = moveDown;
+}
+
+function wypiszHasło() {
+  document.getElementById('haslo').innerHTML = haslo1;
+}
+
+window.onload = start;
 
 
-    function moveLeft() {
-      var actualLeftPosition = +(ball.style.left.replace('px', ''));
-      if (actualLeftPosition > 0) {
-        var newLeftPosition = actualLeftPosition - 10;
-        ball.style.left = newLeftPosition + 'px';
-      }
+function start() {
+  var trescDiva = "";
 
-      removeBlueBallIfCollide();
-
+  for (var i = 0; i < 35; i++) {
+    trescDiva = trescDiva + '<div class="litera">A</div>';
+    if (i == 6) {
+      trescDiva = trescDiva + '<div style="clear:both;"></div>'
     }
+  }
 
-    function moveRight() {
-      var actualLeftPosition = +(ball.style.left.replace('px', ''));
-      if (actualLeftPosition < 340) {
-        var newLeftPosition = actualLeftPosition + 10;
-        ball.style.left = newLeftPosition + 'px';
-      }
-
-      removeBlueBallIfCollide();
-    }
-
-    function moveUp() {
-      var actualTopPosition = +(ball.style.top.replace('px', ''));
-      if (actualTopPosition > 0) {
-        var newTopPosition = actualTopPosition - 10;
-        ball.style.top = newTopPosition + 'px'
-      }
-
-      removeBlueBallIfCollide();
-    }
-
-    function moveDown() {
-      var actualTopPosition = +(ball.style.top.replace('px', ''));
-      if (actualTopPosition < 340) {
-        var newTopPosition = actualTopPosition + 10
-        ball.style.top = newTopPosition + 'px'
-      }
-
-      removeBlueBallIfCollide();
-    }
+  document.getElementById("alfabet").innerHTML = trescDiva;
 
 
-    function removeBlueBallIfCollide() {
-      var actualRedLeftPosition = +(ball.style.left.replace('px', ''));
-      var actualRedTopPosition = +(ball.style.top.replace('px', ''));
-      var actualBlueLeftPosition = +(blueBall.style.left.replace('px', ''));
-      var actualBlueTopPosition = +(blueBall.style.top.replace('px', ''));
-
-      //Math.abs(-10);
-      //Math.abs(10);
-      // LUB: ||
-      // I : &&
-
-      var distanceX = Math.abs(actualRedLeftPosition - actualBlueLeftPosition);
-      var distanceY = Math.abs(actualRedTopPosition - actualBlueTopPosition);
-
-      if (distanceX < 60 && distanceY < 60) {
-        //blueBall.parentNode.removeChild(blueBall);
-        var newLeftPosition = getRandomInt(35) * 10;
-        var newTopPosition = getRandomInt(35) * 10;
-        blueBall.style.left = newLeftPosition + 'px';
-        blueBall.style.top = newTopPosition + 'px';
-      }
-    }
-
-
-    function getRandomInt(n) {
-      return Math.floor((Math.random() * n));
-    }
-
-
-  };
-
-})();
+  wypiszHasło();
+}
